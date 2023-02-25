@@ -1,0 +1,20 @@
+#include <bits/stdc++.h>
+using namespace std;
+int Min(int left,int right,int a[]){
+  if(left==right) return a[left];
+  int middle=(left+right)/2;
+  int num1=Min(left,middle,a);
+  int num2=Min(middle+1,right,a);
+  return num1<num2 ? num1 : num2;
+}
+int main(){
+  int n;
+  cin>>n;
+  int arr[n];
+  for(int i=0;i<n;i++){
+    int x;
+    cin>>x;
+    arr[i]=x;
+  }
+  cout<<Min(0,n-1,arr);
+}
